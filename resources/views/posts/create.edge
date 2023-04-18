@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create Post</h1>
+    <form action="/post/create" method="post" enctype="multipart/form-data">
+        <textarea name="caption" id="" cols="30" rows="10" placeholder="caption"></textarea>
+
+        <div class="upload-post">
+            <label for="">Upload Post</label>
+            <input type="file" name="post_img" id="">
+
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdonisJS - A fully featured web framework for Node.js</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
+  <style>
+
+
+   
+.card{
+  max-width: 500px;
+  border: 1px solid black;
+  background-color: azure;
+  margin-bottom: 10px;
+
+}
+.userdetail{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px 0 10px;
+}
+.user{
+  display: flex;
+  align-items: center;
+
+}
+
+.username{
+  margin-left: 10px;
+}
+ 
+
+ 
+
+
+  </style>
+</head>
+<body>
+<div class="all_post">
+ @each(post in posts)
+   <div class="card">
+    <div class="userdetail">
+      <div class="user">
+        <img src="{{post.user?.avtar}}" alt="" width="20px" height="20px"  class="avtar">
+        <a href="/{{post.user.username}}" class="username">{{post.user?.username}}</a>
+      </div>
+      <p class="more-option">
+        ...
+      </p>
+    </div>
+    <div class="post-img">
+      <img src="{{post.image}}" alt="" width="500px">
+
+      <p class="caption">{{post.caption}}</p>
+    </div>
+   </div>
+ @end
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .error{
+        color:red;
+    }
+</style>
+<body>
+    <h1>Sign Up</h1>
+    <form action="/signup" method="post">
+        <input type="text" name="name" placeholder="Name">
+        @if(flashMessages.has('errors.name'))
+        <p class="error"> {{ flashMessages.get('errors.name') }} </p>
+        @end
+        <input type="text" name="username" placeholder="Username">
+        @if(flashMessages.has('errors.username'))
+        <p class="error"> {{ flashMessages.get('errors.username') }} </p>
+        @end
+        <input type="email" name="email" id="" placeholder="Email">
+        @if(flashMessages.has('errors.email'))
+        <p class="error">   {{ flashMessages.get('errors.email') }} </p>
+        @end
+        <input type="password" value="" placeholder="Password" name="password">
+        @if(flashMessages.has('errors.password'))
+        <p class="error"> {{ flashMessages.get('errors.password') }} </p>
+        @end
+        <input type="password" value="" placeholder="Confirm Password" name="confirm_password">
+        @if(flashMessages.has('errors.confirm_password'))
+        <p class="error"> {{ flashMessages.get('errors.confirm_password') }} </p>
+        @end
+        <button type="submit">Sign Up</button>
+    </form>
+</body>
+</html>

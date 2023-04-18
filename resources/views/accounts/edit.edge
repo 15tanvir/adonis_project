@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Update your details</h1>
+    <form action="/accounts/edit" method="POST" enctype="multipart/form-data">
+        <textarea rows="3" cols="30" name="details" placeholder="Enter Details" >{{auth.user.details}}</textarea>
+        <input type="file" name="avatar" id="">
+        <input type="Submit" value="Submit">
+    </form>
+</body>
+</html>

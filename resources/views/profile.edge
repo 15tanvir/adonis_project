@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .post{
+      
+    }
+
+    .uploaded-post{
+        display: flex;
+        max-width: 400px;
+
+        border: 1px solide black;
+    }
+
+    .follow-button{
+        width: 70px;
+        padding: 5px;
+        border: 0;
+        background-color: blue;
+        color: white;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <h1>Profile </h1>
+
+    @if(auth.isLoggedIn)
+        <p> Hello {{ auth.user.username }} </p>
+        
+    @endif
+    @if(auth.user.followings.map(f=> f.followingId).includes(user.id))
+    <form action="{{`/follow/${user.id}?_method=delete`}}" method="post">
+        <button type="submit" class="follow-button">UnFollow</button>
+    </form>
+    @else
+    <form action="{{`/follow/${user.id}`}}" method="post">
+        <button type="submit" class="follow-button">Follow</button>
+    </form>
+    @end
+
+    <p>
+        Followings: {{user.followings.length}}
+    </p>
+
+    <p>
+        Followers: {{followers}}
+    </p>
+
+    @if(user.email_verfied_at === null)
+    <form action="/verify-email" method="post">
+        <input type="submit" value="Resend">
+    </form>
+    @end
+    <img src="{{user.avtar}}" alt="" srcset="" width="100px" height="100px">
+
+
+    <label for="">Bio</label>
+    <p>{{user.details}}</p>
+
+    @if(auth.user.id === user.id)
+    <a href="/accounts/edit">Edit</a>
+    @end
+
+
+
+
+    <form action="/logout" method="post">
+    <button type="submit">Log Out</button>
+    </form>
+
+    <div class="post">
+        <a href="/post/create">Post + </a>
+
+        <div class="uploaded-post">
+            @each(post in user.posts)
+            <img src="{{post.image}}" alt="" width="200px" height="200px">
+            @end
+        </div>
+    </div>
+
+
+</body>
+</html>
